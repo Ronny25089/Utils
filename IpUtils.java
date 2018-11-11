@@ -56,4 +56,13 @@ public class IpUtils {
         }
         return hostName;
     }
+
+    public static String convertDomainNameToIp(String domainName){
+        try {
+            return InetAddress.getByName(domainName).getHostAddress();
+        } catch (UnknownHostException e) {
+            System.err.println("未知Host，无法解析");
+            return "";
+        }
+    }
 }
